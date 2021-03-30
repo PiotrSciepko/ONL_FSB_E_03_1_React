@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import person from './data/person';
 
 ReactDOM.render(
-  <h1>Hello, World!</h1>,
-  document.getElementById("app")
+    <ul>
+        {Object.values(person).map(el=><li>{el}</li>)}
+    </ul>,
+    document.getElementById("app")
 );
