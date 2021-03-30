@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+const a = parseFloat(prompt("Podaj liczbę A"));
+const b = parseFloat(prompt("Podaj liczbę B"));
+
 ReactDOM.render(
-  <h1>Hello, World!</h1>,
-  document.getElementById("app")
+    <div>{a+b}</div>,
+    document.getElementById("app")
 );
