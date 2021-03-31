@@ -6,7 +6,7 @@ ReactDOM.render(
     <>
         {people.map(el =>
             <div className={"person"} key={el.id}>
-                <img src={el.avatar}/>
+                <img src={el.avatar} alt={"text"}/>
                 <div className={"info"}>
                     <h1>{el.title} {el.name} {el.surname}</h1>
                     <p>{el.bio}</p>
