@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+const imageUrl = "https://images.pexels.com/photos/1061588/pexels-photo-1061588.jpeg";
+
 ReactDOM.render(
-  <h1>Hello, World!</h1>,
+    <img src={imageUrl} alt="alt"/>,
   document.getElementById("app")
 );
