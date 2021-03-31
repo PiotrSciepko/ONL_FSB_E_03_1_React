@@ -5,5 +5,5 @@ const imageUrl = "https://images.pexels.com/photos/1061588/pexels-photo-1061588.
 
 ReactDOM.render(
     <img src={imageUrl} alt="alt"/>,
-  document.getElementById("app")
+    document.getElementById("app")
 );
