@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 const AddNumbers = (props) => <h1>{props.numberA + props.numberB}</h1>;
 
 class AddNumbers1 extends Component {
-    render(props) {
+    render() {
         return <h1>{this.props.numberA + this.props.numberB}</h1>;
     }
 }
