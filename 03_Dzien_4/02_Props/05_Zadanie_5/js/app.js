@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
 class Menu extends Component {
-    render(props) {
+    render() {
         return (
             <ul>
                 {this.props.items.map(item => <li><a href={item.url}>{item.text}</a></li>)}
