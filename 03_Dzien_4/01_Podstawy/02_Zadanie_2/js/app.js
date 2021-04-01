@@ -1,7 +1,16 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
+const LikeBox = () => {
+    return (
+        <div style={{textAlign: "center"}}>
+            <span>100 likes</span><br/>
+            <button>Lubię to!</button>
+        </div>
+    )
+}
+
 ReactDOM.render(
-  <h1>Hello, World!</h1>,
-  document.getElementById("app")
+    <LikeBox/>,
+    document.getElementById("app")
 );
