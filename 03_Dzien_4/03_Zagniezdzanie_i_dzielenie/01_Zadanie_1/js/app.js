@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 const CurrencyConverter = ({from, to, value, rate}) => {
     return (
         <div>
-            <strong>{value}</strong> {from} => <strong>{(Math.round(value * rate * 100) / 100).toFixed(2)}</strong> {to}
+            <strong>{value}</strong> {from} => <strong>{(value * rate).toFixed(2)}</strong> {to}
         </div>
     )
 }
