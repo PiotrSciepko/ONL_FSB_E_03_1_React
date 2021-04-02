@@ -1,16 +1,16 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
-const LikeBox = (props) => {
+const LikeBox = ({initialNumber = 102}) => {
     return (
         <div style={{textAlign: "center"}}>
-            <span>{props.initialNumber} likes</span><br/>
+            <span>{initialNumber} likes</span><br/>
             <button>Lubię to!</button>
         </div>
     )
 }
 
 ReactDOM.render(
-    <LikeBox initialNumber={101}/>,
+    <LikeBox/>,
     document.getElementById("app")
 );
