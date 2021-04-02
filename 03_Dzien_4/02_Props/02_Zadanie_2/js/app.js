@@ -9,11 +9,12 @@ class AddNumbers1 extends Component {
     }
 }
 
+
 ReactDOM.render(
-    <div>
+    <>
         <AddNumbers numberA={2} numberB={5}/>
         <AddNumbers1 numberA={3} numberB={5}/>
-    </div>
+    </>
     ,
     document.getElementById("app")
 );
