@@ -1,34 +1,62 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
-function Chat(props) {
-  return (
-    <section className="chat">
-      <header>
-        <h1>Chat prywatny</h1>
-      </header>
-      <div>
-        <ul>
-          <li>Wpis z chatu 1</li>
-          <li>Wpis z chatu 2</li>
-          <li>Wpis z chatu 3</li>
-        </ul>
-      </div>
-      <footer>
-        <form>
-          <input type="text"/>
-          <button>Wyślij</button>
-        </form>
-      </footer>
-    </section>
-  );
+function Chat() {
+    return (
+        <section className="chat">
+            <ChatHeader/>
+            <ChatMessages>
+                <ChatMessage number={1}/>
+                <ChatMessage number={2}/>
+                <ChatMessage number={3}/>
+            </ChatMessages>
+            <NewChatMessage/>
+        </section>
+    );
 }
 
-function App(props) {
-  return <Chat/>;
+const ChatHeader = () => {
+    return (
+        <header>
+            <h1>Chat prywatny</h1>
+        </header>
+    )
 }
+
+const ChatMessages = (props) => {
+    return (
+        <div>
+            <ul>
+                {props.children}
+            </ul>
+        </div>
+    )
+}
+
+const ChatMessage = (props) => {
+    return (
+        <li>Wpis z chatu {props.number}</li>
+    )
+}
+
+const NewChatMessage = () => {
+    return (
+        <footer>
+            <form>
+                <input type="text"/>
+                <button>Wyślij</button>
+            </form>
+        </footer>
+    )
+}
+
+function App() {
+    return <Chat/>;
+}
+
 
 ReactDOM.render(
-  <App/>,
-  document.getElementById("app")
+    <App/>
+    ,
+    document.getElementById("app")
 );
