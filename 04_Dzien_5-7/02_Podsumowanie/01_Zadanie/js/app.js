@@ -9,7 +9,7 @@ const Receipt = (props) => {
             <ReceiptItems>
                 {props.items.map(item => <ReceiptItem key={item.code} item={item}/>)}
             </ReceiptItems>
-            <ReceiptFooter items={items}/>
+            <ReceiptFooter items={props.items}/>
         </table>
     )
 }
