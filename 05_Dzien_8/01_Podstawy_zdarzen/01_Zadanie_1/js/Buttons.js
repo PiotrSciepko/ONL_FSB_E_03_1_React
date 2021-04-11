@@ -14,7 +14,6 @@ const Buttons = () => {
             <button onClick={getPower}>Klik! 2</button>
             <button onClick={() => console.log(screen.width, screen.height)}>Klik! 3</button>
         </>
-
     )
 }
 
