@@ -9,7 +9,6 @@ export default class TextTyper extends React.Component {
         };
     }
 
-
     increaseCounter = () => {
         this.setState(prevState => {
             if (prevState.counter < prevState.text.length) {
