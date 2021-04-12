@@ -16,7 +16,6 @@ export default class CurrentDate extends React.Component {
                 <h1>
                     {d.getHours()}:{d.getMinutes()}:{d.getSeconds()}, {d.getDate()}/{d.getMonth() + 1}/{d.getFullYear()}
                 </h1>
-                <br/>
                 <button onClick={() => this.setState({date: new Date()})}>Zaktualizuj datę</button>
             </>
         )
