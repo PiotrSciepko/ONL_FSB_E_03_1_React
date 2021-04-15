@@ -22,9 +22,11 @@ const NumberInfo = (props) => {
     return (
         <ul>
             <li>{props.number}</li>
-            <li>{props.number % 2 === 0 ? "Parzysta" : "Nieparzysta"}</li>
-            {isPrime(props.number) && <li>Liczba pierwsza</li>}
-            {isPowerOf2(props.number) && <li>Potęga liczby 2</li>}
+            {props.number % 2 === 0 ? <>
+                <li>Parzysta</li>
+                {isPowerOf2(props.number) && <li>Potęga liczby 2</li>} </> : <>
+                <li>Nieparzysta</li>
+                {isPrime(props.number) && <li>Liczba pierwsza</li>}</>}
         </ul>
     )
 }
