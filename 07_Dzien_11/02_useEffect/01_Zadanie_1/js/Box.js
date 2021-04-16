@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 function Box(props) {
-    const [color, setColor] = useState("cornflowerblue")
+    const [color, setColor] = useState("cornflowerblue");
 
     useEffect(() => {
         const timer = setTimeout(() => setColor("tomato"), 2000);
