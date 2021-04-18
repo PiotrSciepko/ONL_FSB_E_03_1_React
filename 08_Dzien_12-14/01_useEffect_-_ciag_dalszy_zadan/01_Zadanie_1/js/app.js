@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import PropsToState from "./PropsToState";
+
 
 ReactDOM.render(
-  <h1>Hello, World!</h1>,
-  document.getElementById("app")
+    <PropsToState text={"Hello, World! "}/>,
+    document.getElementById("app")
 );
