@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const CrazyDiv = () => {
-    const [style, setStyle] = useState({width: "100px", height: "100px", position: "absolute", backgroundColor: "red"});
+    const [style, setStyle] = useState({width: "100px", height: "100px", position: "absolute", backgroundColor: "red"})
 
     const handleHover = (left, top) => {
         setStyle(prev => ({...prev, left: left, top: top}))
