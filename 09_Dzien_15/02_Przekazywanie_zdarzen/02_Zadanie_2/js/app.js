@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import Shop from "./Shop";
 
 
-ReactDOM.render(<App/>, document.getElementById("app"));
+ReactDOM.render(<Shop/>, document.getElementById("app"));
