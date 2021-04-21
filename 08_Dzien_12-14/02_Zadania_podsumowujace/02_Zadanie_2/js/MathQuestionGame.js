@@ -9,17 +9,14 @@ function MathQuestionGame(props) {
     const [timeRemaining, setTimeRemaining] = useState(5);
     const [buttons, setButtons] = useState([]);
 
-
     useEffect(() => {
         const operations = ["+", "-", "*"];
         const num1 = Math.floor(Math.random() * (10 - 1) + 1);
         const num2 = Math.floor(Math.random() * (10 - 1) + 1);
         const operation = operations[Math.floor(Math.random() * operations.length)];
-        const result = evalResult(num1, num2, operation);
 
-        setResult(result);
+        setResult(evalResult(num1, num2, operation));
         setMessage(`${num1} ${operation} ${num2} =`);
-        setButtons(buttonLabels(result));
 
         const timer = setTimeout(() => {
             setMessage("Czas minął!");
@@ -28,6 +25,8 @@ function MathQuestionGame(props) {
         setTimerId(timer);
         return () => clearTimeout(timerId);
     }, []);
+
+    useEffect(() => setButtons(buttonLabels(result)), [result])
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -53,7 +52,7 @@ function MathQuestionGame(props) {
         const arr = [result];
         let i = 0;
         while (i < 3) {
-            const number = Math.floor(Math.random() * (100 - (10)) + (-10));
+            const number = Math.floor(Math.random() * (100 - (-10)) + (-10));
             if (number !== result) {
                 arr.push(number);
                 i++;
@@ -74,11 +73,7 @@ function MathQuestionGame(props) {
         setIsButtonDisabled(true);
         clearTimeout(timerId);
         clearInterval(intervalId);
-        if (Number(label) === result) {
-            setMessage("Gratulacje!");
-        } else {
-            setMessage("Błędna odpowiedź :(")
-        }
+        setMessage(+label === result ? "Gratulacje!" : "Błędna odpowiedź :(")
     }
 
     return (
