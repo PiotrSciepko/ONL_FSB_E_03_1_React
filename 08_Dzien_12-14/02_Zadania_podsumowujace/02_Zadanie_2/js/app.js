@@ -1,7 +1,11 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import MathQuestionGame from "./MathQuestionGame";
+
+const App = ()=><MathQuestionGame/>
+
 
 ReactDOM.render(
-  <h1>Hello, World!</h1>,
+  <App/>,
   document.getElementById("app")
 );
