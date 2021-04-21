@@ -14,19 +14,20 @@ function MathQuestionGame(props) {
         const num1 = Math.floor(Math.random() * (10 - 1) + 1);
         const num2 = Math.floor(Math.random() * (10 - 1) + 1);
         const operation = operations[Math.floor(Math.random() * operations.length)];
-
         setResult(evalResult(num1, num2, operation));
         setMessage(`${num1} ${operation} ${num2} =`);
+    }, []);
 
+    useEffect(() => setButtons(buttonLabels(result)), [result])
+
+    useEffect(() => {
         const timer = setTimeout(() => {
             setMessage("Czas minął!");
             setIsButtonDisabled(true);
         }, 5000);
         setTimerId(timer);
         return () => clearTimeout(timerId);
-    }, []);
-
-    useEffect(() => setButtons(buttonLabels(result)), [result])
+    }, [])
 
     useEffect(() => {
         const interval = setInterval(() => {
