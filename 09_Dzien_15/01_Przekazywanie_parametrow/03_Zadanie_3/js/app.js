@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import PassParameter from "./PassParameter";
 
 
-ReactDOM.render(<App/>, document.getElementById("app"));
+ReactDOM.render(<PassParameter/>, document.getElementById("app"));
