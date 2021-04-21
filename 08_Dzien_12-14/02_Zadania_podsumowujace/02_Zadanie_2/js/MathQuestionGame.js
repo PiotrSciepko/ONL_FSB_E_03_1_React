@@ -49,17 +49,17 @@ function MathQuestionGame(props) {
     }
 
     const buttonLabels = (result) => {
-        const arr = [result];
+        const labels = [result];
         let i = 0;
         while (i < 3) {
             const number = Math.floor(Math.random() * (100 - (-10)) + (-10));
             if (number !== result) {
-                arr.push(number);
+                labels.push(number);
                 i++;
             }
         }
-        shuffle(arr);
-        return arr;
+        shuffle(labels);
+        return labels;
     }
 
     const shuffle = (a) => {
