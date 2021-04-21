@@ -29,11 +29,12 @@ function MathQuestionGame(props) {
     useEffect(() => setButtons(buttonLabels(result)), [result])
 
     useEffect(() => {
-        const interval = setInterval(() => setTimeRemaining(prev => prev - 1 > 0 ? prev - 1 : 0), 1000);
+        const interval = setInterval(() => {
+            setTimeRemaining(prev => prev - 1 > 0 ? prev - 1 : 0);
+        }, 1000);
         setIntervalId(interval);
         return () => clearInterval(intervalId);
     }, [])
-
 
     const evalResult = (num1, num2, operation) => {
         switch (operation) {
