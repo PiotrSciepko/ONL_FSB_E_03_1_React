@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import Box from "./Box";
 
 
-ReactDOM.render(<App/>, document.getElementById("app"));
+ReactDOM.render(<Box/>, document.getElementById("app"));
