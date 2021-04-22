@@ -1,39 +1,38 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import fakeAPI from "./data/fakeAPI";
 
 const Form = () => {
     const [login, setLogin] = useState({userName: '', password: ''})
     const [isHidden, setIsHidden] = useState(false)
     const [message, setMessage] = useState('')
-    const [validInfo, setValidInfo] = useState({errLogin: null, errPass: null})
+    const [validInfo, setValidInfo] = useState({errLogin: '', errPass: ''})
 
     const handleChange = e => {
         const {name, value} = e.target
-        setLogin(prev => {
-            return {...prev, [name]: value}
-        })
+        setLogin(prev => ({...prev, [name]: value}))
     }
 
     const handleSubmit = e => {
         e.preventDefault()
-        setValidInfo({errLogin: null, errPass: null})
-        let err = 0;
-        if (login.userName.length < 3) {
-            setValidInfo(prev => ({...prev, errLogin: "Login musi być dłuższy niż 2 znaki"}))
-            err++
+        if (login.userName.length >= 3 && login.password.length >= 5) {
+            fakeAPI.login({username: login.userName, password: login.password})
+                .then(username => {
+                    setIsHidden(true)
+                    setMessage(`Witaj ${username.name} ${username.surname} \n Ostatnie logowanie: ${username.lastLogin.toLocaleString()}`)
+                })
+                .catch(err => {
+                    setMessage(err)
+                    setValidInfo({errLogin: null, errPass: null})
+                })
+        } else {
+            setValidInfo({errLogin: null, errPass: null})
+            if (login.userName.length < 3) {
+                setValidInfo(prev => ({...prev, errLogin: "Login musi być dłuższy niż 2 znaki"}))
+            }
+            if (login.password.length < 5) {
+                setValidInfo(prev => ({...prev, errPass: "Hasło musi być dłuższe niż 4 znaki"}))
+            }
         }
-        if (login.password.length < 5) {
-            setValidInfo(prev => ({...prev, errPass: "Hasło musi być dłuższe niż 4 znaki"}))
-            err++
-        }
-        if (err > 0) return
-
-        fakeAPI.login({username: login.userName, password: login.password})
-            .then(username => {
-                setIsHidden(true)
-                setMessage(`Witaj ${username.name} ${username.surname} \n Ostatnie logowanie: ${username.lastLogin.toLocaleString()}`)
-            })
-            .catch(err => setMessage(err))
     }
 
     return (
