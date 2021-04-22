@@ -6,7 +6,7 @@ function MathQuestionGame(props) {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [timerId, setTimerId] = useState();
     const [intervalId, setIntervalId] = useState();
-    const [timeRemaining, setTimeRemaining] = useState(5);
+    const [timeRemaining, setTimeRemaining] = useState(10);
     const [buttons, setButtons] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ function MathQuestionGame(props) {
         const timer = setTimeout(() => {
             setMessage("Czas minął!");
             setIsButtonDisabled(true);
-        }, 5000);
+        }, timeRemaining * 1000);
         setTimerId(timer);
         return () => clearTimeout(timerId);
     }, [])
