@@ -13,7 +13,6 @@ const PeselInput = () => {
 
                 </div>
             </form>
-
         </div>
     );
 };
