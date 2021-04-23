@@ -5,11 +5,10 @@ const ToDoList = () => {
     const [newItem, setNewItem] = useState({id: '', name: '', done: ''});
 
     const handleClick = item => {
-        setList(prev => [...prev.filter(el => el.id !== item.id), {
-            id: item.id,
-            name: item.name,
-            done: !item.done
-        }].sort((a, b) => a.id - b.id))
+        setList(prev => prev.map(el => {
+            el.done = el.id === item.id ? !el.done : el.done;
+            return el;
+        }))
     }
 
     const handleInput = e => {
@@ -21,7 +20,7 @@ const ToDoList = () => {
         if (newItem.name) {
             setList(prev => [...prev, newItem]);
             setNewItem(prev => ({...prev, name: ''}))
-        };
+        }
     }
 
     return (
