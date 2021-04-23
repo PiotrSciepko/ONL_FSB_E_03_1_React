@@ -6,7 +6,11 @@ const SelectOrType = (props) => {
     const [isHidden, setIsHidden] = useState(true);
     const [newItem, setNewItem] = useState('');
 
-    useEffect(() => setIsHidden(item !== "inne"), [item]);
+    useEffect(() => {
+        setIsHidden(item !== "inne");
+        setNewItem('');
+    }, [item]);
+
     useEffect(() => setItem(newItem), [items])
 
     const handleSubmit = e => {
