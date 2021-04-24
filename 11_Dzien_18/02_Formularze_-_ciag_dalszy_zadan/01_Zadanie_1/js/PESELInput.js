@@ -10,7 +10,6 @@ const PeselInput = () => {
                 <div>
                     {/^[0-9]{11}$/.test(pesel) ?
                         <input type={"submit"} value={"Prześlij"}/> : "Niepoprawny numer pesel"}
-
                 </div>
             </form>
         </div>
