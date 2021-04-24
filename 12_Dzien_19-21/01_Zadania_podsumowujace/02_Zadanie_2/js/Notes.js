@@ -14,7 +14,7 @@ const Notes = () => {
             <form onSubmit={handleSubmit}>
                 <textarea value={note} onChange={e => setNote(e.target.value)}/>
                 <br/>
-                <button type={"submit"}>Wyczyść</button>
+                <input type={"submit"} value={"Wyczyść"}/>
             </form>
         </div>
     );
