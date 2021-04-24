@@ -16,7 +16,7 @@ const DynamicLego = () => {
                 <input type={"number"} value={qty} onChange={e => setQty(e.target.value)}/>
             </form>
             <ul>
-                {qty !== 0 && list}
+                {list}
             </ul>
         </div>
     );
