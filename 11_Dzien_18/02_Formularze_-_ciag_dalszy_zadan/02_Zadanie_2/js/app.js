@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import AdultStuff from "./AdultStuff";
 
 ReactDOM.render(
-  <h1>Hello, World!</h1>,
+  <AdultStuff/>,
   document.getElementById("app")
 );
