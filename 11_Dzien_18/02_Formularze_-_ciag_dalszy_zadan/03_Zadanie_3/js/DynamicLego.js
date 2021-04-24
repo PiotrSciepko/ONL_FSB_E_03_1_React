@@ -4,8 +4,10 @@ const DynamicLego = () => {
     const [qty, setQty] = useState(0);
     const [list, setList] = useState([]);
 
+    const style = {backgroundColor: "red", height: "50px"}
+
     useEffect(() => {
-        setList([...new Array(+qty)].map((_, i) => i + 1))
+        setList([...new Array(+qty)].map((_, i) => <li key={i} style={{...style, width: `${(i+1) * 50}px`}}/>))
     }, [qty]);
 
     return (
@@ -14,11 +16,7 @@ const DynamicLego = () => {
                 <input type={"number"} value={qty} onChange={e => setQty(e.target.value)}/>
             </form>
             <ul>
-                {qty !== 0 && list.map(i => <li key={i} style={{
-                    backgroundColor: "red",
-                    height: "50px",
-                    width: `${i * 50}px`
-                }}/>)}
+                {qty !== 0 && list}
             </ul>
         </div>
     );
