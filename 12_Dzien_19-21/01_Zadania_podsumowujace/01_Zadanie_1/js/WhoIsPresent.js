@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 const WhoIsPresent = ({persons}) => {
     const [allPersons, setAllPersons] = useState(persons);
