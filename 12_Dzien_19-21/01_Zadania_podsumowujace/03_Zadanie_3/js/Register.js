@@ -4,12 +4,12 @@ import useUserInput from "./useUserInput";
 const Register = () => {
     const [user, connectUser] = useUserInput({});
     const [summary, setSummary] = useState([]);
-    const [errors, setErrors] = useState({});
-    const [isHidden, setIsHidden] = useState(true);
+    const [errors, setErrors] = useState({'': ''});
 
     const handleSubmit = e => {
         e.preventDefault();
         setErrors({});
+        setSummary([]);
         !/^.{5,}$/.test(user.userName || '') && setErrors(prev => ({
             ...prev, userName: "Nazwa musi mieć min 5 znaków"
         }));
@@ -32,10 +32,7 @@ const Register = () => {
         !/^.{2,}$/.test(user.city || '') && setErrors(prev => ({
             ...prev, city: "Miasto musi mieć min 2 znaki"
         }));
-        if (Object.keys(errors).length === 0) {
-            setIsHidden(false);
-            Object.values(user).map((info, index) => setSummary(prev => [...prev, <h6 key={info + index}>{info}</h6>]));
-        }
+        Object.values(user).map((info, index) => setSummary(prev => [...prev, <h6 key={info + index}>{info}</h6>]));
     }
 
     return (
@@ -78,12 +75,12 @@ const Register = () => {
                             <input type={"text"} name={"city"} {...connectUser}/><br/>
                             <h6 style={{color: "red"}}>{errors.city}</h6>
                             <br/>
-                            <input type={"submit"} value={"Zapisz"} disabled={!isHidden}/>
+                            <input type={"submit"} value={"Zapisz"} disabled={!Object.keys(errors).length}/>
                         </td>
                     </tr>
                     <tr>
                         <td style={{padding: "30px"}}>
-                            <div hidden={isHidden}>
+                            <div hidden={Object.keys(errors).length}>
                                 Podsumowanie:
                                 {summary}
                             </div>
