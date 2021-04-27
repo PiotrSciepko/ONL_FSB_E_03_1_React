@@ -10,13 +10,11 @@ const Holidays = () => {
     }, []);
 
     return (
-        <div>
-            <ul>
-                {holidays.map(item => <li key={item.uuid} className={'holiday-name'}><h3>{item.name}</h3>
-                    <div className={'holiday-date'}>{item.date}</div>
-                </li>)}
-            </ul>
-        </div>
+        <ul>
+            {holidays.map(item => <li key={item.uuid} className={'holiday-name'}><h3>{item.name}</h3>
+                <div className={'holiday-date'}>{item.date}</div>
+            </li>)}
+        </ul>
     );
 };
 
