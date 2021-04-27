@@ -9,7 +9,7 @@ const BookInfo = ({isbn}) => {
             .then(book => setTitle(book.items[0].volumeInfo.title))
     }, []);
 
-    return <h1>{title}</h1>;
+    return title ? <h1>{title}</h1> : "Czekam na dane...";
 
 };
 
