@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import PokemonApi from "./PokemonAPI";
 
 
-ReactDOM.render(<h1>Hello World!</h1>, document.getElementById("app"));
+ReactDOM.render(<PokemonApi/>, document.getElementById("app"));
